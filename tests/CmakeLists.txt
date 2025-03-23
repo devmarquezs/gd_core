@@ -1,0 +1,25 @@
+cmake_minimum_required(VERSION 4.0)
+project(gd_core_tests LANGUAGES NONE)
+
+enable_testing()
+
+set(TESTS
+    vector_test
+    matrix_test
+    quaternion_test
+    config_test
+    logger_test
+)
+
+foreach(TEST ${TESTS})
+    set(TEST_BIN "${CMAKE_BINARY_DIR}/${TEST}.exe")
+
+    # Chamamos o build.zig diretamente
+    add_custom_target(${TEST}_build ALL
+    COMMAND zig build -Drelease-safe -femit-bin=${TEST_BIN}
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    COMMENT "Compilando teste ${TEST}"
+)
+
+    add_test(NAME ${TEST} COMMAND ${TEST_BIN})
+endforeach()

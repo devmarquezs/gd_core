@@ -1,12 +1,17 @@
-CMakeLists.txt.user
+# Diretórios e arquivos gerados pelo build
+build/
+.zig-cache/
+
+# Arquivos do CMake
 CMakeCache.txt
-CMakeFiles
-CMakeScripts
-Testing
-Makefile
+CMakeFiles/
 cmake_install.cmake
-install_manifest.txt
-compile_commands.json
-CTestTestfile.cmake
-_deps
-CMakeUserPresets.json
+Makefile
+
+# Logs do Ninja
+.ninja_log
+.ninja_deps
+
+# Configurações de IDE (opcional)
+*.code-workspace
+.vscode/
